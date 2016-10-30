@@ -33,7 +33,7 @@ function saveLikes(req, res, next) {
 
   getDB().then((db) => {
     db.collection('likes')
-      .insert(insertObj.favorite, (insertErr, result) => {
+      .insert(insertObj.likes, (insertErr, result) => {
         if (insertErr) return next(insertErr);
         res.saved = result;
         db.close();

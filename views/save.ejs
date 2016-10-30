@@ -4,21 +4,26 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Saved Songs</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
 </head>
 <body>
 <h1>Saved Songs</h1>
+
 <div id="search-results-container">
-    <h2>Search Results:</h2>
+    <h2>Liked Songs:</h2>
+    <form action="/save" method="get" accept-charset="utf-8">
+
     <% results.forEach((song) => { %>
       <div class="search-results">
         <img src="<%= album.artworkUrl100 %>" alt="">
-        <h2><%= song.message.body.track_list[0].track.track_name %></h1>
+        <h2><%= song.message.body.track_list[0].track.track_name %></h2>
         <h2><%= song.message.body.track_list[0].track.artist_name %></h2>
 
       </div>
     <% }) %>
   </div>
+  </form>
   <a href="/users/profile">Home</a>
 </body>
 </html>

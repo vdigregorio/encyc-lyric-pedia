@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>lyrics</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
 </head>
 <body>
 <h1><%= lyrics.message.body.track_list[0].track.track_name %></h1>
@@ -14,9 +15,9 @@
 <iframe src="<%= lyrics.message.body.track_list[0].track.track_share_url %> ">
 </iframe>
 <form action="/save" method="POST">
-          <input type="hidden"  value="<%= lyrics.message.body.track_list[0].track.track_name %>">
-          <input type="hidden"  value="<%= lyrics.message.body.track_list[0].track.artist_name %>">
-          <input type="submit" value="LIKE">
+    <input type="hidden"  value="<%= lyrics.message.body.track_list[0].track.track_name %>">
+    <input type="hidden"  value="<%= lyrics.message.body.track_list[0].track.artist_name %>">
+    <input type="submit" value="LIKE">
 </form>
 </body>
 </html>

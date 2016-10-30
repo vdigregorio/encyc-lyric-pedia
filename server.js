@@ -21,6 +21,11 @@ app.set('view engine', 'ejs');
 
 // log requests to STDOUT
 app.use(morgan('dev'));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+// app.use('/static', express.static(__dirname + '/public'));
+
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +46,6 @@ app.use(session({
 }));
 
 // Set static file root folder
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);

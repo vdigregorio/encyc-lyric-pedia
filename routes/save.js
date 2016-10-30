@@ -1,27 +1,29 @@
 const router              = require('express').Router();
 const { authenticate }    = require('../lib/auth');
-const { searchLyrics }     = require('../services/lyrics');
+// const { searchLyrics }     = require('../services/lyrics');
 const { getLikes,
         saveLikes,
         deleteLikes } = require('../models/save');
 
 router.get('/', authenticate, getLikes, (req, res) => {
-  res.render('indexx', {
+  res.render('profile', {
     user: res.user,
-    // results: res.results || [],
+    results: res.results || [],
+    lyrics: res.lyrics || []
+  });
+});
+
+
+router.post('/', authenticate, getLikes, (req, res) => {
+  res.render('save', {
+    user: res.user,
+    results: res.results || [],
     lyrics: res.lyrics || []
   });
 });
 
 router.post('/', saveLikes, (req, res) => {
-  res.redirect('/lyrics');
-});
-router.post('/', authenticate, searchLyrics, getLikes, (req, res) => {
-  res.render('index', {
-    user: res.user,
-    results: res.results || [],
-    lyrics: res.lyrics || []
-  });
+  res.redirect('home');
 });
 
 router.delete('/save/:id', deleteLikes, (req, res) => {
