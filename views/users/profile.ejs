@@ -3,22 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Profile</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alice|PT+Sans+Caption|Pacifico|Quattrocento+Sans" rel="stylesheet">
 
   </head>
   <body>
-    <!-- Example -->
-    <h1>Encyc-lyric-pedia</h1>
-        <h2>Welcome! <%= user.username %></h2>
+    <form class="logout" action="/auth?_method=DELETE" method="post">
+      <input type="submit" value="Logout" class="color">
+</form>
+<br>
+    <h2>Encyc-lyric-pedia</h2>
+        <p>Welcome <%= user.username %> !</p>
 
 <form action="/lyrics" method="get" accept-charset="utf-8">
-    <input type="text" name="q_track" placeholder="enter a track name">
-    <input type="submit" value="search lyrics">
+    <input class="use" type="text" name="q_track" placeholder="enter a track name">
+    <br>
+    <input type="submit" value="search lyrics" class="butt">
 </form>
-<form action="/auth?_method=DELETE" method="post">
-      <input type="submit" value="Logout">
-</form>
+
   </body>
 </html>
 

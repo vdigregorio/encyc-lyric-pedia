@@ -6,13 +6,25 @@
   <title>lyrics</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Alice|PT+Sans+Caption|Pacifico|Quattrocento+Sans" rel="stylesheet">
+
 </head>
 <body>
+<form class="logout" action="/users/profile"  accept-charset="utf-8">
+      <input type="Submit" Value="Home" class="color"></a>
 
-<h1 name="track"><%= lyrics.message.body.track_list[0].track.track_name %></h1>
-<h2 name="artist"><%= lyrics.message.body.track_list[0].track.artist_name %></h2>
-<h3><%= lyrics.message.body.track_list[0].track.album_name %></h3>
-<h4>LYRICS</h4>
+</form>
+
+<form class="logout" action="/auth?_method=DELETE" method="post">
+      <input type="submit" value="Logout" class="color">
+</form>
+<br>
+<br>
+    <h2>Encyc-lyric-pedia</h2>
+<p>Search Results</p>
+<h5 name="track">Song: <%= lyrics.message.body.track_list[0].track.track_name %></h5>
+<h5 name="artist">Artist: <%= lyrics.message.body.track_list[0].track.artist_name %></h5>
+<h5>Album: <%= lyrics.message.body.track_list[0].track.album_name %></h5>
 <div class="frame">
 <iframe src="<%= lyrics.message.body.track_list[0].track.track_share_url %> ">
 </iframe>
@@ -20,7 +32,7 @@
 <form action="/save" method="get">
           <input type="hidden" name="track" value="<%= lyrics.message.body.track_list[0].track.track_name %>">
           <input type="hidden" name="artist" value="<%= lyrics.message.body.track_list[0].track.artist_name %>">
-<input type="submit" value="LIKE" class="button">
+<input type="submit" value="LIKE" class="butt">
  </form>
 </body>
 </html>

@@ -6,6 +6,7 @@
   <title>Saved Songs</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Alice|PT+Sans+Caption|Pacifico|Quattrocento+Sans" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript">
 
@@ -48,16 +49,23 @@ $('.two').append(artist).text(art);
   </script>
 </head>
 <body>
+<form class="logout" action="/users/profile"  accept-charset="utf-8">
+      <input type="Submit" Value="Home" class="color"></a>
 
-    <h1><%= user.username %>'s Liked Songs:</h1>
-      <a href="/users/profile">Home</a>
+</form>
+<br>
+    <h2>Encyc-lyric-pedia</h2>
+
+    <p><%= user.username %>'s Liked Songs:</p>
 
 <div class="like-container">
-<p class="one"></p>
-<p class="two"></p>
+Song:
+<h6 class="one"> </h6>
+Artist:
+<h6 class="two"> </h6>
 </div>
 <form action="/save/likes/<%= lyrics._id %>?_method=DELETE" method="post">
-          <input type="submit" value="Delete">
+          <input type="submit" value="Delete" class="butt">
 </form>
         <!-- <form action="/save/<%= lyrics._id %>?_method=DELETE" method="post">
           <input type="submit" value="Delete">
