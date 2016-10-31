@@ -1,7 +1,7 @@
 const { ObjectID } = require('mongodb');
 const { getDB }    = require('../lib/dbConnect.js');
 
-// const DB_CONNECTION = 'mongodb://localhost:27017/itunescrud';
+// const DB_CONNECTION = 'mongodb://localhost:27017/savelikedsongs';
 
 function getLikes(req, res, next) {
   // find all favorites for your userId
@@ -29,7 +29,7 @@ function saveLikes(req, res, next) {
   }
 
   // Adding userId to insertObj
-  insertObj.likes.userId = req.session.userId;
+  insertObj.like.userId = req.session.userId;
 
   getDB().then((db) => {
     db.collection('likes')

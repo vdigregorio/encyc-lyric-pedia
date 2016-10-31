@@ -8,22 +8,21 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
 </head>
 <body>
-<h1>Saved Songs</h1>
 
-<div id="search-results-container">
-    <h2>Liked Songs:</h2>
-    <form action="/save" method="get" accept-charset="utf-8">
+    <h1><%= user.username %>'s Liked Songs:</h1>
+<div class="like-container">
+<form action="/lyrics" method="post" accept-charset="utf-8">
 
-    <% results.forEach((song) => { %>
-      <div class="search-results">
-        <img src="<%= album.artworkUrl100 %>" alt="">
-        <h2><%= song.message.body.track_list[0].track.track_name %></h2>
-        <h2><%= song.message.body.track_list[0].track.artist_name %></h2>
+</form>
+<!-- <h1><%= lyrics.message.body.track_list[0].track.track_name %></h1>
+<h2><%= lyrics.message.body.track_list[0].track.artist_name %></h2> -->
+</div>
 
-      </div>
-    <% }) %>
+        <!-- <form action="/save/<%= lyrics._id %>?_method=DELETE" method="post">
+          <input type="submit" value="Delete">
+        </form> -->
+
   </div>
-  </form>
   <a href="/users/profile">Home</a>
 </body>
 </html>
