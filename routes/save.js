@@ -29,11 +29,12 @@ router.post('/', authenticate, saveLikes, getLikes, (req, res) => {
 //   res.redirect('/save');
 // });
 
-router.delete('likes/:id', deleteLikes, getLikes, (req, res) => {
-  res.render('save', {
-    user: res.user,
-    likes: res.likes,
-  });
+router.delete('/likes/:id', deleteLikes, (req, res) => {
+  // res.render('save', {
+  //   user: res.user,
+  //   likes: res.likes,
+  // });
+  res.redirect('/users/profile')
 });
 
 
