@@ -9,9 +9,9 @@ function findLyricsByTrack(req, res, next) {
   fetch(`${API_URL}${MUSIC_KEY}&q_track=${qs}&q_artist=${qq}`)
     .then(r => r.json())
     .then((result) => {
-    res.lyrics = result;
-    // console.log(res.lyrics)
-    next();
+      res.lyrics = result;
+      // console.log(res.lyrics)
+      next();
     })
     .catch((err) => {
       res.err = err;
@@ -19,4 +19,4 @@ function findLyricsByTrack(req, res, next) {
     })
 }
 
-module.exports = { findLyricsByTrack};
+module.exports = { findLyricsByTrack };

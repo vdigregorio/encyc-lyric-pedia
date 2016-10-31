@@ -15,29 +15,32 @@ h2 {
   font-family: 'pacifico';
   font-size: 50px;
 }
-p{
+
+p {
   font-family: 'quattrocento sans';
   font-size: 40px;
 }
 
 h6 {
-font-family: "quattrocento sans";
-font-size: 25px;
+  font-family: "quattrocento sans";
+  font-size: 25px;
 }
 
 h4 {
   font-family: "pt sans caption";
   font-size: 40px;
 }
-h5{
-font-family: "quattrocento sans";
-font-size: 20px;
+
+h5 {
+  font-family: "quattrocento sans";
+  font-size: 20px;
 }
 
-.yow{
+.yow {
   margin: 100px;
 }
-.butt{
+
+.butt {
   border-radius: 10px;
   background-color: gray;
   width: 130px;
@@ -46,24 +49,26 @@ font-size: 20px;
   font-family: "quattrocento sans";
   margin: 5px;
 }
-.use{
-margin: 10px;
-width: 200px;
-  height: 30px;
-  font-size: 20px;
 
-}
-.pass{
+.use {
   margin: 10px;
   width: 200px;
   height: 30px;
   font-size: 20px;
-
 }
-.logout{
+
+.pass {
+  margin: 10px;
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.logout {
   margin-left: 75%;
 }
-.color{
+
+.color {
   background-color: rgba(176, 185, 221, 1);
   width: 100px;
   height: 40px;
@@ -73,9 +78,11 @@ width: 200px;
   margin: 3px 3px 4px;
   border-radius: 3px;
 }
-.color:hover{
+
+.color:hover {
   color: white;
 }
+
 a {
   font-family: 'alice';
   font-size: 30px;
@@ -83,10 +90,12 @@ a {
   text-decoration: none;
   color: black;
 }
-a:hover{
+
+a:hover {
   color: white;
 }
-.nav{
+
+.nav {
   margin-left: 75%;
 }
 

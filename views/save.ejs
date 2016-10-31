@@ -11,32 +11,22 @@
 </head>
 <body>
 <form class="logout" action="/users/profile"  accept-charset="utf-8">
-      <input type="Submit" Value="Home" class="color"></a>
-
+    <input type="Submit" Value="Home" class="color"></a>
 </form>
-
 <br>
     <h2>Encyc-lyric-pedia</h2>
-
     <p><%= user.username %>'s Liked Songs:</p>
-
 <% likes.forEach((like) => { %>
-  <div class="like-container">
-<h6 class="one">Song: <%= like.track %>
+<div class="like-container">
+ <h6 class="one">Song: <%= like.track %>
  </h6>
-<h6 class="two"> Artist: <%= like.artist %>
-</h6>
+ <h6 class="two"> Artist: <%= like.artist %>
+ </h6>
 </div>
 <form action="/save/likes/<%= like._id %>?_method=DELETE" method="post">
           <input type="submit" value="Delete" class="butt">
 </form>
 <% }) %>
-
-        <!-- <form action="/save/?_method=DELETE" method="post">
-          <input type="submit" value="Delete">
-        </form> -->
-
   </div>
-
 </body>
 </html>

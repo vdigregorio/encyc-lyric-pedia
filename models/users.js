@@ -1,9 +1,6 @@
-/* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
-/* eslint no-param-reassign: ["error", { "props": false }] */
-
 const { ObjectID } = require('mongodb');
-const { getDB }    = require('../lib/dbConnect.js');
-const bcrypt       = require('bcryptjs');
+const { getDB } = require('../lib/dbConnect.js');
+const bcrypt = require('bcryptjs');
 
 const SALTROUNDS = 10;
 
