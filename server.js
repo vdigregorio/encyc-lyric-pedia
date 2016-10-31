@@ -57,7 +57,7 @@ app.use('/save', saveRoute);
 
 // Listen on port for connections
 // process.env.PORT is needed for when we deploy to Heroku
-const port = process.env.PORT || 3000;
+const port = /*process.env.PORT ||*/ 4000;
 app.listen(port, () => {
   console.log(`chamber of secrets at ${port}`);
 });

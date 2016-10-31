@@ -8,23 +8,19 @@
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
 </head>
 <body>
-<form action="/save" method="get" accept-charset="utf-8">
 
-<h1><%= lyrics.message.body.track_list[0].track.track_name %></h1>
-<h2><%= lyrics.message.body.track_list[0].track.artist_name %></h2>
+<h1 name="track"><%= lyrics.message.body.track_list[0].track.track_name %></h1>
+<h2 name="artist"><%= lyrics.message.body.track_list[0].track.artist_name %></h2>
 <h3><%= lyrics.message.body.track_list[0].track.album_name %></h3>
-
 <h4>LYRICS</h4>
+<div class="frame">
 <iframe src="<%= lyrics.message.body.track_list[0].track.track_share_url %> ">
 </iframe>
-<br>
-<input type="submit" value="LIKE">
-</form>
-
-<!-- <form action="/save" method="post">
-          <input type="hidden" value="<%= lyrics.message.body.track_list[0].track.track_name %>">
-          <input type="hidden" value="<%= lyrics.message.body.track_list[0].track.artist_name %>">
-          <input type="submit" value="LIKE">
- </form> -->
+</div>
+<form action="/save" method="get">
+          <input type="hidden" name="track" value="<%= lyrics.message.body.track_list[0].track.track_name %>">
+          <input type="hidden" name="artist" value="<%= lyrics.message.body.track_list[0].track.artist_name %>">
+<input type="submit" value="LIKE" class="button">
+ </form>
 </body>
 </html>

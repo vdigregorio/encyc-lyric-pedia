@@ -19,6 +19,30 @@ function getLikes(req, res, next) {
   return false;
 }
 
+// function saveLikes(req, res, next) {
+//   // creating an empty object for the insertObj
+//   const insertObj = {};
+
+//   // copying all of req.body into insertObj
+//   for(key in req.body) {
+//     insertObj[key] = req.body[key];
+//   }
+
+//   // Adding userId to insertObj
+//   insertObj.likes.userId = req.session.userId;
+
+//   getDB().then((db) => {
+//     db.collection('likes')
+//       .insert(insertObj.likes, (insertErr, result) => {
+//         if (insertErr) return next(insertErr);
+//         res.saved = result;
+//         db.close();
+//         next();
+//       });
+//       return false;
+//   });
+//   return false;
+// }
 function saveLikes(req, res, next) {
   // creating an empty object for the insertObj
   const insertObj = {};
@@ -29,11 +53,11 @@ function saveLikes(req, res, next) {
   }
 
   // Adding userId to insertObj
-  insertObj.like.userId = req.session.userId;
+  insertObj.favorite.userId = req.session.userId;
 
   getDB().then((db) => {
-    db.collection('likes')
-      .insert(insertObj.likes, (insertErr, result) => {
+    db.collection('favorites')
+      .insert(insertObj.favorite, (insertErr, result) => {
         if (insertErr) return next(insertErr);
         res.saved = result;
         db.close();

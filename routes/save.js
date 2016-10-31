@@ -10,23 +10,27 @@ const {
 router.get('/', authenticate, getLikes, findLyricsByTrack, (req, res) => {
   res.render('save', {
     user: res.user,
-    lyrics: res.lyrics
+    lyrics: res.lyrics,
+    saved: res.saved
+
   });
 });
 
 
-router.get('/', authenticate, getLikes, findLyricsByTrack, (req, res) => {
+router.post('/', authenticate, getLikes, findLyricsByTrack, (req, res) => {
   res.render('save', {
     user: res.user,
-    lyrics: res.lyrics
+    lyrics: res.lyrics,
+    saved: res.saved
+
   });
 });
 
-router.get('/likes', saveLikes, (req, res) => {
+router.post('/likes', saveLikes, (req, res) => {
   res.redirect('/save');
 });
 
-router.delete('/likes/:id', deleteLikes, (req, res) => {
+router.delete('likes/:id', deleteLikes, (req, res) => {
   res.redirect('/save');
 });
 

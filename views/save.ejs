@@ -4,25 +4,66 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Saved Songs</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  //got this function from: http://papermashup.com/read-url-get-variables-withjavascript/
+$( document ).ready(function() {
+
+function getUrlVars() {
+var vars = {};
+
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
+
+var track = getUrlVars()['track'];
+var artist = getUrlVars()['artist'];
+// $('.one').append(track);
+
+// $('.two').append(artist);
+
+//i got this function from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+function splitString(stringToSplit, separator) {
+  var arrayOfStrings = stringToSplit.split(separator);
+
+
+  return arrayOfStrings.join(' ');
+}
+
+
+
+var plus = '+';
+var art = splitString(artist, plus);
+var tra = splitString(track, plus);
+$('.one').append(track).text(tra);
+$('.two').append(artist).text(art);
+
+});
+
+  </script>
 </head>
 <body>
 
     <h1><%= user.username %>'s Liked Songs:</h1>
+      <a href="/users/profile">Home</a>
+
 <div class="like-container">
-<form action="/lyrics" method="post" accept-charset="utf-8">
-
-</form>
-<!-- <h1><%= lyrics.message.body.track_list[0].track.track_name %></h1>
-<h2><%= lyrics.message.body.track_list[0].track.artist_name %></h2> -->
+<p class="one"></p>
+<p class="two"></p>
 </div>
-
+<form action="/save/likes/<%= lyrics._id %>?_method=DELETE" method="post">
+          <input type="submit" value="Delete">
+</form>
         <!-- <form action="/save/<%= lyrics._id %>?_method=DELETE" method="post">
           <input type="submit" value="Delete">
         </form> -->
 
   </div>
-  <a href="/users/profile">Home</a>
+
 </body>
 </html>
