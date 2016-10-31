@@ -5,7 +5,8 @@ const MUSIC_KEY = process.env.MUSIC_KEY;
 
 function findLyricsByTrack(req, res, next) {
   let qs = req.query.q_track;
-  fetch(`${API_URL}${MUSIC_KEY}&q_track=${qs}`)
+  let qq = req.query.q_artist;
+  fetch(`${API_URL}${MUSIC_KEY}&q_track=${qs}&q_artist=${qq}`)
     .then(r => r.json())
     .then((result) => {
     res.lyrics = result;
