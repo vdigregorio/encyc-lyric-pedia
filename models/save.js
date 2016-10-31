@@ -45,7 +45,8 @@ function getLikes(req, res, next) {
 // }
 function saveLikes(req, res, next) {
   // creating an empty object for the insertObj
-  const insertObj = {};
+  const insertObj = {
+  };
 
   // copying all of req.body into insertObj
   for(key in req.body) {
@@ -53,11 +54,11 @@ function saveLikes(req, res, next) {
   }
 
   // Adding userId to insertObj
-  insertObj.favorite.userId = req.session.userId;
+  insertObj.userId = req.session.userId;
 
   getDB().then((db) => {
-    db.collection('favorites')
-      .insert(insertObj.favorite, (insertErr, result) => {
+    db.collection('likes')
+      .insert(insertObj, (insertErr, result) => {
         if (insertErr) return next(insertErr);
         res.saved = result;
         db.close();

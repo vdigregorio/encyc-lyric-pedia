@@ -7,46 +7,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/normalize.css">
   <link href="https://fonts.googleapis.com/css?family=Alice|PT+Sans+Caption|Pacifico|Quattrocento+Sans" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript">
 
-  //got this function from: http://papermashup.com/read-url-get-variables-withjavascript/
-$( document ).ready(function() {
-
-function getUrlVars() {
-var vars = {};
-
-var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-vars[key] = value;
-});
-return vars;
-}
-
-var track = getUrlVars()['track'];
-var artist = getUrlVars()['artist'];
-// $('.one').append(track);
-
-// $('.two').append(artist);
-
-//i got this function from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
-function splitString(stringToSplit, separator) {
-  var arrayOfStrings = stringToSplit.split(separator);
-
-
-  return arrayOfStrings.join(' ');
-}
-
-
-
-var plus = '+';
-var art = splitString(artist, plus);
-var tra = splitString(track, plus);
-$('.one').append(track).text(tra);
-$('.two').append(artist).text(art);
-
-});
-
-  </script>
 </head>
 <body>
 <form class="logout" action="/users/profile"  accept-charset="utf-8">
@@ -58,16 +19,19 @@ $('.two').append(artist).text(art);
 
     <p><%= user.username %>'s Liked Songs:</p>
 
-<div class="like-container">
-Song:
-<h6 class="one"> </h6>
-Artist:
-<h6 class="two"> </h6>
+<% likes.forEach((like) => { %>
+  <div class="like-container">
+<h6 class="one">Song: <%= like.track %>
+ </h6>
+<h6 class="two"> Artist: <%= like.artist %>
+</h6>
 </div>
-<form action="/save/likes/<%= lyrics._id %>?_method=DELETE" method="post">
+<form action="/save/likes/<%= like._id %>?_method=DELETE" method="post">
           <input type="submit" value="Delete" class="butt">
 </form>
-        <!-- <form action="/save/<%= lyrics._id %>?_method=DELETE" method="post">
+<% }) %>
+
+        <!-- <form action="/save/?_method=DELETE" method="post">
           <input type="submit" value="Delete">
         </form> -->
 

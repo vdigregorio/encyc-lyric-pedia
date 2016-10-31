@@ -17,21 +17,23 @@ router.get('/', authenticate, getLikes, findLyricsByTrack, (req, res) => {
 });
 
 
-router.post('/', authenticate, getLikes, findLyricsByTrack, (req, res) => {
+router.post('/', authenticate, saveLikes, getLikes, (req, res) => {
   res.render('save', {
     user: res.user,
-    lyrics: res.lyrics,
-    saved: res.saved
-
+    likes: res.likes,
   });
+  // res.json(res.saved);
 });
 
-router.post('/likes', saveLikes, (req, res) => {
-  res.redirect('/save');
-});
+// router.post('/likes', saveLikes, (req, res) => {
+//   res.redirect('/save');
+// });
 
-router.delete('likes/:id', deleteLikes, (req, res) => {
-  res.redirect('/save');
+router.delete('likes/:id', deleteLikes, getLikes, (req, res) => {
+  res.render('save', {
+    user: res.user,
+    likes: res.likes,
+  });
 });
 
 
